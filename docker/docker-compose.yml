@@ -1,16 +1,6 @@
 version: '3.8'
 
 services:
- # my_recipe-book:
-  #  build:
-   #   context: ../my_recipe_book
-    #  dockerfile: Dockerfile
-    #image: mysql:latest
-    #container_name: my_recipe-book
-    #ports:
-      #- "3306:3306"
-    #networks:
-    #  - recipe-network
 
   my_recipe-book:
     build:
@@ -22,20 +12,6 @@ services:
         - MYSQL_ROOT_PASSWORD=my-secret-pw
     ports:
       - "3306:3306"
-
-  #email-mysql:
-   # build:
-    #  context: ../sendgrid
-     # dockerfile: Dockerfile
-    #image: mysql:latest
-    #container_name: sendgrid
-    #environment:
-     # MYSQL_ROOT_PASSWORD: my-secret-pw
-     # MYSQL_DATABASE: ms_email
-    #ports:
-    #  - "3307:3306"
-    #networks:
-    #  - email-network
 
   email-mysql:
       build:
