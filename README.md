@@ -15,9 +15,9 @@ As configurações para o SendGrid são especificadas no arquivo de propriedades
 
 
 
-spring.sendgrid.api-key=Criar Chave de API SendGrid.
+spring.sendgrid.api-key=Criar Chave de API na pagina endGrid.
 
-spring.sendgrid.from-email=seu email confugurado no site SendGrid
+spring.sendgrid.from-email=seu email confugurado na página SendGrid
 
 spring.sendgrid.text-email=Seu texto de e-mail padrão.
 
