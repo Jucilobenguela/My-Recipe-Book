@@ -19,8 +19,7 @@ import java.util.Map;
 public class RecipeController {
     @Autowired
     RecipeService recipeService;
-    @Autowired
-    SendMessageQueueService sendMessageQueueService;
+
 
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody @Valid RequestRecipeDTO recipeDTO){
@@ -28,7 +27,6 @@ public class RecipeController {
             return ResponseEntity.badRequest().build();
         }
         recipeService.registerRecipe(recipeDTO);
-        sendMessageQueueService.publishExpense(recipeDTO.getUserDTO().getEmail());
         return ResponseEntity.ok().build();
     }
     @PatchMapping("/{id}")

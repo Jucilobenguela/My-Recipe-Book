@@ -7,6 +7,7 @@ import academy.mindswap.my_recipe_book.communication.response.UserResponseJson;
 import academy.mindswap.my_recipe_book.infra.security.TokenService;
 import academy.mindswap.my_recipe_book.model.entity.User;
 import academy.mindswap.my_recipe_book.repository.user.UserRepository;
+import academy.mindswap.my_recipe_book.service.queueService.SendMessageQueueService;
 import academy.mindswap.my_recipe_book.service.user.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,8 @@ public class UserController {
     private AuthenticationManager authenticationManager;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    SendMessageQueueService sendMessageQueueService;
     @GetMapping
     public ResponseEntity get(){
         List<UserResponseJson> users = this.userRepository.findAll()
@@ -60,6 +63,7 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
         userService.create(registerUserDTO);
+        sendMessageQueueService.publishExpense(registerUserDTO.getEmail());
         return ResponseEntity.ok().build();
     }
 } 
