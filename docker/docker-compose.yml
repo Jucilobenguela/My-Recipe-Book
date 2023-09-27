@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+ # my_recipe-book:
+  #  build:
+   #   context: ../my_recipe_book
+    #  dockerfile: Dockerfile
+    #image: mysql:latest
+    #container_name: my_recipe-book
+    #ports:
+      #- "3306:3306"
+    #networks:
+    #  - recipe-network
+
+  my_recipe-book:
+    build:
+      context: ../my_recipe_book
+      args:
+        - MYSQL_DATABASE=my_recipe_book
+        - MYSQL_USER=my_recipe_book
+        - MYSQL_PASSWORD=my-secret-pw
+        - MYSQL_ROOT_PASSWORD=my-secret-pw
+    ports:
+      - "3306:3306"
+
+  #email-mysql:
+   # build:
+    #  context: ../sendgrid
+     # dockerfile: Dockerfile
+    #image: mysql:latest
+    #container_name: sendgrid
+    #environment:
+     # MYSQL_ROOT_PASSWORD: my-secret-pw
+     # MYSQL_DATABASE: ms_email
+    #ports:
+    #  - "3307:3306"
+    #networks:
+    #  - email-network
+
+  email-mysql:
+      build:
+        context: ../sendgrid
+        args:
+          - MYSQL_DATABASE=ms_email
+          - MYSQL_USER=ms_email
+          - MYSQL_PASSWORD=my-secret-pw
+          - MYSQL_ROOT_PASSWORD=my-secret-pw
+      ports:
+        - "3307:3306"
+
+  localstack:
+    image: localstack/localstack:latest
+    environment:
+      - AWS_DEFAULT_REGION=eu-north-1
+      - EDGE_PORT=4566
+      - SERVICES=sqs
+    ports:
+      - '4566:4566'
+
+
+
+networks:
+  recipe-network:
+    driver: bridge
+
+  email-network:
+    driver: bridge

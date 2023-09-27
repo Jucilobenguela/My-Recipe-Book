@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: recipe-mysql
+    container_name: my_recive_book
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: my_recipe_book
+    ports:
+      - "3305:3306"
+    command: --socket=/var/run/mysqld/mysqld.sock
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-pmy-secret-pw"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
