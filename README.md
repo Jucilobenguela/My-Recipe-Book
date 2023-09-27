@@ -7,7 +7,7 @@ Este projecto utiliza duas APIs *my_recipe_book* e *sendGrid*
 O "My Recipe Book" é um projeto que permite aos usuários registrar, atualizar e excluir receitas. Além disso, oferece funcionalidade de autenticação para os usuários.
 
 ### sendGrid
-SendGrid para enviar e-mails automatico. O serviço de envio de e-mails está implementado na classe EmailService dentro do pacote com.sendgrid.services.sendEmailService.
+SendGrid para enviar e-mails automatico.
 
 #### Configuração
 
