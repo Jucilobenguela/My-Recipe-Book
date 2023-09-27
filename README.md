@@ -1,7 +1,7 @@
 # My Recipe Book
 
 ## Descrição
-Este projecto utiliza duas APIs my_recipe_book* e *sendGrid*
+Este projecto utiliza duas APIs *my_recipe_book* e *sendGrid*
 
 ### my_recipe-book
 O "My Recipe Book" é um projeto que permite aos usuários registrar, atualizar e excluir receitas. Além disso, oferece funcionalidade de autenticação para os usuários.
