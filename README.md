@@ -11,7 +11,7 @@ SendGrid para enviar e-mails automatico.
 
 #### Configuração
 
-As configurações para o SendGrid são especificadas no arquivo de propriedades da aplicação (application.properties). Certifique-se de configurar as seguintes propriedades:
+As configurações para o SendGrid são especificadas no arquivo de propriedades da aplicação (application.properties).
 
 properties
 spring.sendgrid.api-key=Criar Chave de API SendGrid.
