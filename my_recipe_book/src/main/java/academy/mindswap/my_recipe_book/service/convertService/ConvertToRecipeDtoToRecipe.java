@@ -1,6 +1,7 @@
 package academy.mindswap.my_recipe_book.service.convertService;
 
 import academy.mindswap.my_recipe_book.communication.dto.RequestRecipeDTO;
+import academy.mindswap.my_recipe_book.exception.userException.NotAuthenticateException;
 import academy.mindswap.my_recipe_book.model.entity.Ingredient;
 import academy.mindswap.my_recipe_book.model.entity.Recipe;
 import academy.mindswap.my_recipe_book.model.entity.User;
@@ -15,7 +16,7 @@ public class ConvertToRecipeDtoToRecipe {
     @Autowired
     UserService userService;
 
-    public Recipe convertRequestRecipeDTOTORecipe(RequestRecipeDTO requestRecipeDTO){
+    public Recipe convertRequestRecipeDTOTORecipe(RequestRecipeDTO requestRecipeDTO) throws NotAuthenticateException {
         if(requestRecipeDTO == null){
             throw new NullPointerException("receita vazia");
         }

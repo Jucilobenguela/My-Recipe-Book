@@ -3,6 +3,7 @@ package academy.mindswap.my_recipe_book.service.user.register;
 import academy.mindswap.my_recipe_book.communication.dto.RequestRegisterUserDTO;
 import academy.mindswap.my_recipe_book.communication.dto.UserCreateDTO;
 import academy.mindswap.my_recipe_book.communication.dto.UserDTO;
+import academy.mindswap.my_recipe_book.exception.userException.NotAuthenticateException;
 import academy.mindswap.my_recipe_book.model.entity.User;
 import academy.mindswap.my_recipe_book.repository.user.UserRepository;
 import academy.mindswap.my_recipe_book.service.user.UserService;
@@ -60,7 +61,7 @@ public class UserServiceRegister implements UserService {
     }
 
     @Override
-    public String userAuthenticated() {
+    public String userAuthenticated() throws NotAuthenticateException {
         return authService.userAuthenticated();
     }
 }

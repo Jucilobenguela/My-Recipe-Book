@@ -3,6 +3,7 @@ package academy.mindswap.my_recipe_book.service.user;
 import academy.mindswap.my_recipe_book.communication.dto.RequestRegisterUserDTO;
 import academy.mindswap.my_recipe_book.communication.dto.UserCreateDTO;
 import academy.mindswap.my_recipe_book.communication.dto.UserDTO;
+import academy.mindswap.my_recipe_book.exception.userException.NotAuthenticateException;
 import academy.mindswap.my_recipe_book.model.entity.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -23,6 +24,6 @@ public interface UserService {
 
     void delete(Long id);
     User findByEmail(String email);
-    String userAuthenticated();
+    String userAuthenticated() throws NotAuthenticateException;
 
 }

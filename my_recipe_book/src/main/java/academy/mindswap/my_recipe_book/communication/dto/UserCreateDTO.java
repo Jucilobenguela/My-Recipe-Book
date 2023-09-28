@@ -17,7 +17,8 @@ public class UserCreateDTO {
     private String email;
 
     @NotBlank
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$", message = "Password must contain at least 8 characters, one uppercase, one lowercase and one number")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$",
+            message = "Password must contain at least 8 characters, one uppercase, one lowercase and one number")
     private String password;
 
     private String retypePassword;
@@ -49,19 +50,4 @@ public class UserCreateDTO {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRetypePassword() {
-        return retypePassword;
-    }
-
-    public void setRetypePassword(String retypePassword) {
-        this.retypePassword = retypePassword;
-    }
 }

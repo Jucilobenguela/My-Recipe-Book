@@ -1,56 +1,48 @@
 package academy.mindswap.my_recipe_book.communication.dto;
-import academy.mindswap.my_recipe_book.model.entity.Ingredient;
 import academy.mindswap.my_recipe_book.model.enun.Category;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotBlank;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class RequestRecipeDTO {
+    @NotBlank
     private String title;
+    @NotBlank
+    @Enumerated(EnumType.STRING)
     private Category category;
+    @NotBlank
     private String deliveryMode;
+    @NotBlank
     private int deliveryTime;
+    @NotBlank
     private UserDTO userDTO;
-    private List<Ingredient> ingredients;
+    @NotBlank
+    private List<RequestIngredientDTO> ingredientsDto;
 
     public RequestRecipeDTO(){
 
-        ingredients = new ArrayList<>();
+        ingredientsDto = new ArrayList<>();
     }
     public String getTitle() {
         return title;
     }
-    public void setTitle(String title) {
-        this.title = title;
-    }
     public Category getCategory() {
         return category;
-    }
-    public void setCategory(Category category) {
-        this.category = category;
     }
     public String getDeliveryMode() {
         return deliveryMode;
     }
-    public void setDeliveryMode(String deliveryMode) {
-        this.deliveryMode = deliveryMode;
-    }
     public int getDeliveryTime() {
         return deliveryTime;
-    }
-    public void setDeliveryTime(int deliveryTime) {
-        this.deliveryTime = deliveryTime;
     }
     public UserDTO getUserDTO() {
         return userDTO;
     }
-    public void setUserDTO(UserDTO userDTO) {
-        this.userDTO = userDTO;
-    }
-    public List<Ingredient> getIngredients() {
-        return ingredients;
+    public List<RequestIngredientDTO> getIngredientsDto() {
+        return ingredientsDto;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
 }

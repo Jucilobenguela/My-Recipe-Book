@@ -1,17 +1,20 @@
 package academy.mindswap.my_recipe_book.service.recipe;
 
 import academy.mindswap.my_recipe_book.communication.dto.RequestRecipeDTO;
+import academy.mindswap.my_recipe_book.exception.recipeException.NullRecipeException;
+import academy.mindswap.my_recipe_book.exception.recipeException.RecipeNotFoundDataBaseException;
+import academy.mindswap.my_recipe_book.exception.userException.NotAuthenticateException;
 import academy.mindswap.my_recipe_book.model.entity.Ingredient;
 import academy.mindswap.my_recipe_book.model.entity.Recipe;
 import academy.mindswap.my_recipe_book.repository.recipe.RecipeRepository;
-import academy.mindswap.my_recipe_book.repository.user.UserRepository;
 import academy.mindswap.my_recipe_book.service.convertService.ConvertToRecipeDtoToRecipe;
 import academy.mindswap.my_recipe_book.service.ingredient.IngredientService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Slf4j
 @Service
 public class RecipeService {
     @Autowired
@@ -22,40 +25,61 @@ public class RecipeService {
     IngredientService ingredientService;
 
     public void registerRecipe(RequestRecipeDTO requestRecipeDTO){
-        if(requestRecipeDTO==null){
-            throw new NullPointerException("receita vazia");
-        }
-        Recipe recipe = convertToRecipeDtoToRecipe.convertRequestRecipeDTOTORecipe(requestRecipeDTO);
-        recipe.setIngredients(ingredientService.listRequestIngredient(recipe,requestRecipeDTO));
-        recipeRepository.save(recipe);
+       try {
+           if(requestRecipeDTO==null){
+               throw new NullRecipeException("Recipe is null");
+           }
+           Recipe recipe = convertToRecipeDtoToRecipe.convertRequestRecipeDTOTORecipe(requestRecipeDTO);
+           recipe.setIngredients(ingredientService.listRequestIngredient(recipe,requestRecipeDTO));
+           recipeRepository.save(recipe);
+       }  catch (NotAuthenticateException | NullRecipeException e) {
+           log.error(e.getMessage());
+       }
     }
-    public void updateRecipe(Long id, RequestRecipeDTO recipeDTO){
-        if (recipeDTO== null){
-            throw new NullPointerException();
+    public void updateRecipe(Long id, RequestRecipeDTO recipeDTO) {
+        try {
+           Recipe recipe = checkPropertyUpdates(id, recipeDTO);
+       List<Ingredient> ingredientList = ingredientService.listRequestIngredient(recipe, recipeDTO);
+            for (Ingredient ingredient : recipe.getIngredients()) {
+                ingredientService.deleteIngredient(ingredient.getId());
+            }
+            recipe.setIngredients(ingredientList);
+            recipeRepository.save(recipe);
+        } catch (RecipeNotFoundDataBaseException e) {
+            log.error(e.getMessage());
         }
-        Recipe recipe = recipeRepository.findById(id).orElse(null);
-        recipe.setId(id);
-        recipe.setTitle(recipeDTO.getTitle());
-        recipe.setCategory(recipeDTO.getCategory());
-        recipe.setDeliveryMode(recipeDTO.getDeliveryMode());
-        recipe.setDeliveryTime(recipeDTO.getDeliveryTime());
-        List<Ingredient> ingredientList = ingredientService.listRequestIngredient(recipe, recipeDTO);
-        for (Ingredient ingredient : recipe.getIngredients()) {
-            //podia fazer comparacao de cada propriedade do igrediente e apagar e pagar somente aquele que nao for igual a da requisicao
-            ingredientService.deleteIngredient(ingredient.getId());
-        }
-        recipe.setIngredients(ingredientList);
-        recipeRepository.save(recipe);
     }
     public void deleteRecipe(long recipeId) {
-        Recipe recipe = recipeRepository.findById(recipeId).orElse(null);
+        try {
+          Recipe recipe = findRecipeByIdDataBase(recipeId);
+            ingredientService.deleteListIngredient(recipe.getIngredients());
+            recipeRepository.deleteById(recipeId);
+        } catch (RecipeNotFoundDataBaseException e) {
+            log.error(e.getMessage());
+        }
+    }
+    private Recipe findRecipeByIdDataBase(Long id) throws RecipeNotFoundDataBaseException {
+        Recipe recipe = recipeRepository.findById(id).orElse(null);
         if (recipe == null) {
-            throw new NullPointerException( "Recita com este Id não existe");
+            throw new RecipeNotFoundDataBaseException( "Recipe with this Id was not found");
         }
-        ingredientService.deleteListIngredient(recipe.getIngredients());
-        recipeRepository.deleteById(recipeId);
-        if(recipe == null){
-            System.out.println("receita apagada");
+        return recipe;
+    }
+    private Recipe checkPropertyUpdates(Long id, RequestRecipeDTO recipeDTO) throws RecipeNotFoundDataBaseException {
+        Recipe recipe = findRecipeByIdDataBase(id);
+        if (recipeDTO.getDeliveryTime() != recipe.getDeliveryTime()) {
+            recipe.setDeliveryTime(recipeDTO.getDeliveryTime());
         }
+        if (recipeDTO.getCategory() != recipe.getCategory()) {
+            recipe.setCategory(recipeDTO.getCategory());
+        }
+        if (!recipeDTO.getDeliveryMode().equals(recipe.getDeliveryMode())) {
+            recipe.setDeliveryMode(recipeDTO.getDeliveryMode());
+        }
+        if (!recipeDTO.getTitle().equals(recipe.getTitle())) {
+            recipe.setTitle(recipeDTO.getTitle());
+        }
+        recipe.setId(id);
+        return recipe;
     }
 }

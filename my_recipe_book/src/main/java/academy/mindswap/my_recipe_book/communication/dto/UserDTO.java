@@ -1,18 +1,17 @@
 package academy.mindswap.my_recipe_book.communication.dto;
 
 import academy.mindswap.my_recipe_book.model.entity.User;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class UserDTO {
+    @NotBlank
     private String name;
+    @NotBlank
+    @Email
     private String email;
 
-    public UserDTO() {
-    }
-
-    public UserDTO(Long id, String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
     public String getName() {
         return name;
     }
@@ -27,9 +26,6 @@ public class UserDTO {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-    public UserDTO convertUser_To_UserDto(User user){
-      return   new UserDTO(user.getId(),user.getUsername(), user.getEmail());
     }
 
 }

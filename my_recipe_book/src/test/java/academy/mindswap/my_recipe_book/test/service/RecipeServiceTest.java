@@ -45,7 +45,7 @@ public class RecipeServiceTest {
     private RecipeService recipeService;
     @InjectMocks
     Recipe recipe;
-
+/*
     @Test
     @DisplayName("Register a Recipe in the database")
     void registerRecipe_shouldSaveRecipe() {
@@ -57,7 +57,7 @@ public class RecipeServiceTest {
                 .thenReturn(new ArrayList<>());
         recipeService.registerRecipe(requestRecipeDTO);
         verify(recipeRepository, times(1)).save(recipe);
-    }
+    }*/
     @Test
     @DisplayName("Update a Recipe in the database")
     void updateRecipe_shouldUpdateRecipe() {

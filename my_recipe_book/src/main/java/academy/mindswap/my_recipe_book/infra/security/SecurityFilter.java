@@ -1,11 +1,14 @@
 package academy.mindswap.my_recipe_book.infra.security;
 
+    import academy.mindswap.my_recipe_book.exception.userException.UserNullPointerException;
     import academy.mindswap.my_recipe_book.repository.user.UserRepository;
     import jakarta.servlet.FilterChain;
     import jakarta.servlet.ServletException;
     import jakarta.servlet.http.HttpServletRequest;
     import jakarta.servlet.http.HttpServletResponse;
+    import lombok.extern.slf4j.Slf4j;
     import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.http.ResponseEntity;
     import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
     import org.springframework.security.core.context.SecurityContextHolder;
     import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +18,7 @@ package academy.mindswap.my_recipe_book.infra.security;
     import java.io.IOException;
 
     @Component
+    @Slf4j
     public class SecurityFilter extends OncePerRequestFilter {
         @Autowired
         TokenService tokenService;
@@ -22,19 +26,35 @@ package academy.mindswap.my_recipe_book.infra.security;
         UserRepository userRepository;
 
         @Override
-        protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-            String token = this.recoverToken(request);
-            if(token != null){
-                String info = tokenService.validateToken(token);
-                if(info != null && !info.isEmpty()){
-                    UserDetails user = userRepository.findByEmail(info);
+        protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException {
+           try {
+               String token = this.recoverToken(request);
+               if(token != null){
+                   String info = tokenService.validateToken(token);
+                   if(info != null && !info.isEmpty()){
+                       UserDetails user = userRepository.findByEmail(info);
 
-                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user,
-                            null, user.getAuthorities());
-                    SecurityContextHolder.getContext().setAuthentication(authentication);
-                }
-            }
-            filterChain.doFilter(request, response);
+                       UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user,
+                               null, user.getAuthorities());
+                       SecurityContextHolder.getContext().setAuthentication(authentication);
+                   }
+               }
+               filterChain.doFilter(request, response);
+           } catch (ServletException e){
+               log.error(e.getMessage());
+               response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR ,
+                       "Err in server");
+
+           }catch (IOException e){
+               log.error(e.getMessage());
+               response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR ,
+                       "A server error has occurred. Please try again later.");
+           }catch (Exception e){
+               response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Authentication credentials are incorrect, please try again");
+               log.error("User is not authenticate");
+
+           }
+
         }
 
         private String recoverToken(HttpServletRequest request){
