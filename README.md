@@ -8,7 +8,7 @@ O "My Recipe Book" é um projeto que permite aos usuários registrar, atualizar 
 
 
 [sendGrid](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/sendgrid)
-SendGrid para enviar e-mails automatico, quando é feito o regista, enviando uma mensagem de boas vindas
+SendGrid para enviar e-mails automatico, quando é feito o registo, enviando uma mensagem de boas vindas
 
 #### Configuração
 
@@ -24,31 +24,31 @@ Docker Compose para gerenciar os serviços necessários. O arquivo docker-compos
 
 ## Estrutura do Projeto
 
-####[academy.mindswap.my_recipe_book.controllers*: Controladores da aplicação.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/controllers)
+[academy.mindswap.my_recipe_book.controllers: Controladores da aplicação.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/controllers)
 
 
-[academy.mindswap.my_recipe_book.dtos*: DTOs para comunicação.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/dtos)
+[academy.mindswap.my_recipe_book.dtos: DTOs para comunicação.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/dtos)
 
 
-[*academy.mindswap.my_recipe_book.model*: Entidades do modelo.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/model/entity)
+[*academy.mindswap.my_recipe_book.model: Entidades do modelo.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/model/entity)
 
 
 [academy.mindswap.my_recipe_book.repository: Repositório para operações relacionadas a Banco de dados.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/repository)
 
 
-[academy.mindswap.my_recipe_book.service*: Lógica de negócio da aplicação.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/service)
+[academy.mindswap.my_recipe_book.service: Lógica de negócio da aplicação.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/service)
 
 
-[academy.mindswap.my_recipe_book.infra*:  Infraestrutura.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/infra)
+[academy.mindswap.my_recipe_book.infra:  Infraestrutura.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/infra)
 
 
-[academy.mindswap.my_recipe_book.configuration*:  Configuracão.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/configuration)
+[academy.mindswap.my_recipe_book.configuration:  Configuracão.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/configuration)
 
 
-[academy.mindswap.my_recipe_book.enums*: enums](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/enums)
+[academy.mindswap.my_recipe_book.enums: enums](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/enums)
 
 
-[academy.mindswap.my_recipe_book.converts*:  convertedor.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/converts)
+[academy.mindswap.my_recipe_book.converts:  convertedor.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/converts)
 
     
 
