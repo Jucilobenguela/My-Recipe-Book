@@ -54,7 +54,7 @@ Docker Compose para gerenciar os serviços necessários. O arquivo docker-compos
 
 ## Endpoints da API
 
-#### POST /my_recipe_book/recipe/register
+### POST /my_recipe_book/recipe/register
 
 Registra uma nova receita.
 
