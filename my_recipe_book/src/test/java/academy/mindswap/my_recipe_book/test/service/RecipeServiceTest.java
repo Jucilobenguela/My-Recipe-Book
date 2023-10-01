@@ -1,16 +1,14 @@
 package academy.mindswap.my_recipe_book.test.service;
 
-import academy.mindswap.my_recipe_book.communication.dto.RequestRecipeDTO;
-import academy.mindswap.my_recipe_book.communication.dto.UserDTO;
 import academy.mindswap.my_recipe_book.model.entity.Ingredient;
 import academy.mindswap.my_recipe_book.model.entity.Recipe;
-import academy.mindswap.my_recipe_book.repository.recipe.RecipeRepository;
-import academy.mindswap.my_recipe_book.repository.user.UserRepository;
-import academy.mindswap.my_recipe_book.service.convertService.ConvertToRecipeDtoToRecipe;
-import academy.mindswap.my_recipe_book.service.ingredient.IngredientService;
-import academy.mindswap.my_recipe_book.service.recipe.RecipeService;
-import academy.mindswap.my_recipe_book.service.user.authentication.AuthService;
-import academy.mindswap.my_recipe_book.service.user.register.UserServiceRegister;
+import academy.mindswap.my_recipe_book.repository.RecipeRepository;
+import academy.mindswap.my_recipe_book.repository.UserRepository;
+import academy.mindswap.my_recipe_book.converts.ConvertToRecipeDtoToRecipe;
+import academy.mindswap.my_recipe_book.service.IngredientService;
+import academy.mindswap.my_recipe_book.service.RecipeService;
+import academy.mindswap.my_recipe_book.configuration.authentication.AuthService;
+import academy.mindswap.my_recipe_book.service.interfaces_services.UserService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,9 +16,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.Mockito.*;
@@ -32,7 +27,7 @@ public class RecipeServiceTest {
     @Mock
     private RecipeRepository recipeRepository;
     @Mock
-    UserServiceRegister userServiceRegister;
+    UserService userService;
     @Mock
     private AuthService authService;
     @Mock

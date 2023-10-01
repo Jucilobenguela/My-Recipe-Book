@@ -1,8 +1,8 @@
 package academy.mindswap.my_recipe_book.test.repository;
 
 import academy.mindswap.my_recipe_book.model.entity.User;
-import academy.mindswap.my_recipe_book.model.enun.UserRole;
-import academy.mindswap.my_recipe_book.repository.user.UserRepository;
+import academy.mindswap.my_recipe_book.enums.UserRole;
+import academy.mindswap.my_recipe_book.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;

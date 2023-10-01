@@ -1,6 +1,6 @@
 package academy.mindswap.my_recipe_book.model.entity;
 
-import academy.mindswap.my_recipe_book.communication.dto.RequestIngredientDTO;
+import academy.mindswap.my_recipe_book.dtos.request_dtos.RequestIngredientDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;

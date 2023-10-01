@@ -1,6 +1,6 @@
 package academy.mindswap.my_recipe_book.model.entity;
 
-import academy.mindswap.my_recipe_book.model.enun.UserRole;
+import academy.mindswap.my_recipe_book.enums.UserRole;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;

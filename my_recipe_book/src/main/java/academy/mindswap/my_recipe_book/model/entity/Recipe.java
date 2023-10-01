@@ -1,5 +1,5 @@
 package academy.mindswap.my_recipe_book.model.entity;
-import academy.mindswap.my_recipe_book.model.enun.Category;
+import academy.mindswap.my_recipe_book.enums.Category;
 import jakarta.persistence.*;
 import jakarta.persistence.CascadeType;
 import org.hibernate.annotations.*;

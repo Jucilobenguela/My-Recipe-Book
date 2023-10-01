@@ -37,8 +37,8 @@ Docker Compose para gerenciar os serviços necessários. O arquivo docker-compos
 
 ## Estrutura do Projeto
 
-- *academy.mindswap.my_recipe_book.controller*: Controladores da aplicação.
-- *academy.mindswap.my_recipe_book.communication*: DTOs para comunicação.
+- *academy.mindswap.my_recipe_book.controllers*: Controladores da aplicação.
+- *academy.mindswap.my_recipe_book.dtos*: DTOs para comunicação.
 - *academy.mindswap.my_recipe_book.model*: Entidades do modelo.
 - *academy.mindswap.my_recipe_book.repository*: Repositório para operações relacionadas a Banco de dados.
 - *academy.mindswap.my_recipe_book.service*: Lógica de negócio da aplicação.
