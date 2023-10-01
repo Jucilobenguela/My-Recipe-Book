@@ -3,11 +3,11 @@
 ## Descrição
 Este projecto utiliza duas APIs *my_recipe_book* e *sendGrid*
 
-### my_recipe-book
+[my_recipe_book](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book)
 O "My Recipe Book" é um projeto que permite aos usuários registrar, atualizar e excluir, buscar receitas. Além disso, oferece funcionalidade de registar, autenticação para os usuários, atualização (desde o usuário até a senha) e exclusão.
 
 
-### sendGrid
+[sendGrid](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/sendgrid)
 SendGrid para enviar e-mails automatico, quando é feito o regista, enviando uma mensagem de boas vindas
 
 #### Configuração
@@ -24,9 +24,9 @@ Docker Compose para gerenciar os serviços necessários. O arquivo docker-compos
 
 ## Estrutura do Projeto
 
-- *academy.mindswap.my_recipe_book.controllers*: Controladores da aplicação.
-- *academy.mindswap.my_recipe_book.dtos*: DTOs para comunicação.
-- *academy.mindswap.my_recipe_book.model*: Entidades do modelo.
+[academy.mindswap.my_recipe_book.controllers*: Controladores da aplicação.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/controllers)
+[academy.mindswap.my_recipe_book.dtos*: DTOs para comunicação.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/dtos)
+[*academy.mindswap.my_recipe_book.model*: Entidades do modelo.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/model/entity)
 - *academy.mindswap.my_recipe_book.repository*: Repositório para operações relacionadas a Banco de dados.
 - *academy.mindswap.my_recipe_book.service*: Lógica de negócio da aplicação.
 - *academy.mindswap.my_recipe_book.infra*:  Infraestrutura.
