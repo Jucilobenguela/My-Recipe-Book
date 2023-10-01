@@ -24,7 +24,7 @@ Docker Compose para gerenciar os serviços necessários. O arquivo docker-compos
 
 ## Estrutura do Projeto
 
-*[academy.mindswap.my_recipe_book.controllers*: Controladores da aplicação.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/controllers)*
+####[academy.mindswap.my_recipe_book.controllers*: Controladores da aplicação.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/controllers)
 
 
 [academy.mindswap.my_recipe_book.dtos*: DTOs para comunicação.](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/dtos)
@@ -54,7 +54,7 @@ Docker Compose para gerenciar os serviços necessários. O arquivo docker-compos
 
 ## Endpoints da API
 
-### [POST /my_recipe_book/recipe/register](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book/src/main/java/academy/mindswap/my_recipe_book/converts)
+### POST /my_recipe_book/recipe/register
 
 Registra uma nova receita.
 
