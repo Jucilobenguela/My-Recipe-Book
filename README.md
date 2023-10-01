@@ -4,7 +4,7 @@
 Este projecto utiliza duas APIs *my_recipe_book* e *sendGrid*
 
 [my_recipe_book](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/my_recipe_book)
-O "My Recipe Book" é um projeto que permite aos usuários registrar, atualizar e excluir, buscar receitas. Além disso, oferece funcionalidade de registar, autenticação para os usuários, atualização (desde o usuário até a senha) e exclusão.
+O "My Recipe Book" é um projeto que permite aos usuários registrar, atualizar, excluir, buscar receitas. Além disso, oferece funcionalidade de registar, autenticação para os usuários, atualização (desde o usuário até a senha) e exclusão.
 
 
 [sendGrid](https://github.com/Jucilobenguela/My-Recipe-Book/tree/main/sendgrid)
