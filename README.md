@@ -93,7 +93,7 @@ Modifica a senha do usuario
 
 1. Clone este repositório.
    
-3. Certifique-se de ter o Docker e o Docker Compose e aws instalados.
+3. Certifique-se de ter o Docker, o Docker Compose e aws instalados.
 
 4. Execute docker-compose up --build na raiz do projeto para iniciar os serviços.
 
