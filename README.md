@@ -1,4 +1,4 @@
-[ My Recipe Book ] (https://github.com/Jucilobenguela/My-Recipe-Book)
+[My Recipe Book](https://github.com/Jucilobenguela/My-Recipe-Book)
 
 ## Descrição
 Este projecto utiliza duas APIs *my_recipe_book* e *sendGrid*
